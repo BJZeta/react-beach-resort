@@ -5,13 +5,18 @@ import Rooms from "./pages/Rooms";
 import SingleRoom from "./pages/SingleRoom";
 import Error from "./pages/Error";
 
+import { Route, Switch } from "react-router-dom";
+
 function App() {
   return (
-    <div>
-      <Home />
-      <Rooms />
-      <h1>Matrix code for one last time?</h1>
-    </div>
+    <>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/rooms/" component={Rooms} />
+        <Route exact path="/rooms/:example" component={SingleRoom} />
+        <Route component={Error} />
+      </Switch>
+    </>
   );
 }
 
